@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*-----------------------------------*\
  * #CUSTOM PROPERTY
 \*-----------------------------------*/
@@ -541,7 +542,7 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
-.gallery-item:last-child(3) {
+.gallery-item:nth-child(3) {
   grid-area: 1/2/3/3;
 }
 .gallery-image {
@@ -612,7 +613,7 @@ body {
 }
 .footer-contact .contact-item {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 10px;
   margin-bottom: 10px;
@@ -777,7 +778,7 @@ body {
     margin-bottom: 0;
   }
   .tour-search-form .input-field {
-    padding: 6px 20px;
+    padding: 16px 20px;
   }
   .tour-search .btn {
     grid-column: span 2;
@@ -866,7 +867,160 @@ body {
     padding: 40px;
   }
   .package-card .card-price {
+    display: grid;
+    place-content: center;
+  }
+  .package-card .card-price .wrapper {
     margin-bottom: 15px;
+  }
+  /* GALLERY */
+  .gallery {
+    padding-bottom: 120px;
+  }
+  .gallery-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .gallery-image {
+    border-radius: 25px;
+  }
+  /* CTA */
+  .cta .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .cta-content {
+    width: calc(100% - 225px);
+  }
+  .cta .section-text {
+    margin-inline: 0;
+  }
+  /* FOOTER */
+  .footer-form .input-field {
+    margin-bottom: 0;
+  }
+  .footer-form .btn {
+    width: max-content;
+  }
+  .footer-form .form-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+  }
+}
+/* RESPONSVIE FOR LARGE THAN 992PX SCREEN */
+@media screen and (min-width: 992px) {
+  /* REUSED STYLE */
+  .container {
+    max-width: 1050px;
+  }
+  /* HEADER */
+  .header .active .header-top {
+    /* Uset: đặt lại thuộc tính về giá trị đc kế thừa
+    nếu thuộc tính đó đc kết thừa từ cấp độ gốc và giá trị ban đầu nếu không*/
+    position: unset;
+    background: unset;
+  }
+  .header .active .header-bottom {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 2px 5px hsla(0, 0%, 0%, 0.08);
+    transition: 0.25s ease-in-out;
+  }
+  .header-bottom {
+    border-bottom: none;
+  }
+  .header-bottom .container {
+    padding-block: 0;
+  }
+  .header-bottom .container .nav-open-btn,
+  .header-bottom .container .navbar-top {
+    display: none;
+  }
+  .header-bottom .container .navbar {
+    all: unset;
+  }
+  .header-bottom .container .navbar .navbar-list {
+    border-top: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .header-bottom .container .navbar .navbar-list > li {
+    border-bottom: none;
+  }
+  .header-bottom .container .navbar .navbar-list > li .navbar-link {
+    color: hsl(0, 0%, 100%);
+    font-size: 16px;
+    font-weight: unset;
+    text-transform: uppercase;
+    padding: 20px 15px;
+  }
+  .header-bottom .container .navbar .navbar-list .active .navbar-link {
+    color: hsl(0, 0%, 25%);
+  }
+  .header-bottom .container .navbar .navbar-list .active .navbar-link :is(:hover, :focus) {
+    color: hsl(214, 57%, 51%);
+  }
+  .header-bottom .container .active .social-link {
+    color: hsl(0, 0%, 25%);
+    border-color: hsla(0, 0%, 0%, 0.15);
+  }
+  .header .overlay {
+    display: none;
+  }
+  /* HERO */
+  .hero .container {
+    max-width: 740px;
+  }
+  /* TOUR SEARCH */
+  .tour-search-form {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .tour-search .btn {
+    padding: 15px;
+    grid-column: unset;
+    margin-top: 0;
+  }
+  /* POPULAR */
+  .popular-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  /* PACKAGE */
+  .package-card .card-meta-item .meta-box {
+    font-size: 13px;
+  }
+  .package-card .card-meta-item .meta-box > ion-icon {
+    font-size: 15px;
+  }
+  /* CTA */
+  .cta .section-title {
+    max-width: 25ch;
+  }
+  /* FOOTER */
+  .footer-top .container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+  }
+  .footer-form {
+    grid-column: unset;
+  }
+  .footer-form .form-wrapper {
+    flex-direction: column;
+  }
+  .footer-form .btn {
+    width: 100%;
+  }
+}
+/* RESPONSVIE FOR LARGE THAN 1200PX SCREEN */
+@media screen and (min-width: 1200px) {
+  /* CUSTOM PROPERTY */
+  :root {
+    padding: 100px;
   }
 }
 

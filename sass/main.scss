@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 @import "config";
 
 /*-----------------------------------*\
@@ -620,7 +622,7 @@ body {
         gap: 10px;
     }
 
-    &-item:last-child(3) {
+    &-item:nth-child(3) {
         grid-area: 1 / 2 / 3 / 3;
     }
 
@@ -706,7 +708,7 @@ body {
 
         .contact-item {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             gap: 10px;
             margin-bottom: 10px;
@@ -915,7 +917,7 @@ body {
                 }
 
                 .input-field {
-                    padding: 6px 20px;
+                    padding: 16px 20px;
                 }
             }
 
@@ -1045,8 +1047,237 @@ body {
             }
 
             .card-price {
-                margin-bottom: 15px;
+                display: grid;
+                place-content: center;
+
+                .wrapper {
+                    margin-bottom: 15px;
+                }
             }
         }
+    }
+
+    /* GALLERY */
+    .gallery {
+        padding-bottom: calc($section-padding * 2);
+
+        &-list {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        &-image {
+            border-radius: $radius-25;
+        }
+    }
+
+    /* CTA */
+    .cta {
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &-content {
+            width: calc(100% - 225px);
+        }
+
+        .section-text {
+            margin-inline: 0;
+        }
+    }
+
+    /* FOOTER */
+    .footer {
+
+        &-form {
+
+            .input-field {
+                margin-bottom: 0;
+            }
+
+            .btn {
+                width: max-content;
+            }
+
+            .form-wrapper {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 20px;
+            }
+        }
+
+    }
+}
+
+
+/* RESPONSVIE FOR LARGE THAN 992PX SCREEN */
+@media screen and (min-width: 992px) {
+
+    /* REUSED STYLE */
+    .container {
+        max-width: 1050px;
+    }
+
+    /* HEADER */
+    .header {
+
+        .active {
+            .header-top {
+                /* Uset: đặt lại thuộc tính về giá trị đc kế thừa
+        nếu thuộc tính đó đc kết thừa từ cấp độ gốc và giá trị ban đầu nếu không*/
+                position: unset;
+                background: unset;
+            }
+
+            .header-bottom {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                box-shadow: 0 2px 5px hsla(0, 0%, 0%, 0.08);
+                transition: $transition;
+            }
+        }
+
+        &-bottom {
+            border-bottom: none;
+
+            .container {
+                padding-block: 0;
+
+                .nav-open-btn,
+                .navbar-top {
+                    display: none;
+                }
+
+                .navbar {
+                    all: unset;
+
+                    .navbar-list {
+                        border-top: none;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        >li {
+                            border-bottom: none;
+
+
+                            .navbar-link {
+                                color: $white;
+                                font-size: 16px;
+                                font-weight: unset;
+                                text-transform: uppercase;
+                                padding: 20px 15px;
+                            }
+                        }
+
+                        .active {
+                            .navbar-link {
+                                color: $onyx;
+
+                                & :is(:hover, :focus) {
+                                    color: $bright-navy-blue;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .active {
+                    .social-link {
+                        color: $onyx;
+                        border-color: hsla(0, 0%, 0%, 0.15);
+                    }
+                }
+            }
+        }
+
+        .overlay {
+            display: none;
+        }
+    }
+
+    /* HERO */
+    .hero {
+        .container {
+            max-width: 740px;
+        }
+    }
+
+    /* TOUR SEARCH */
+    .tour-search {
+        &-form {
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        .btn {
+            padding: 15px;
+            grid-column: unset;
+            margin-top: 0;
+        }
+    }
+
+    /* POPULAR */
+
+    .popular-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* PACKAGE */
+    .package-card {
+
+        .card-meta-item {
+
+            .meta-box {
+                font-size: 13px;
+
+                >ion-icon {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+
+    /* CTA */
+    .cta {
+        .section-title {
+            max-width: 25ch;
+        }
+    }
+
+    /* FOOTER */
+    .footer {
+        &-top {
+            .container {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 50px;
+            }
+        }
+
+        &-form {
+            grid-column: unset;
+
+            .form-wrapper {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+    }
+}
+
+/* RESPONSVIE FOR LARGE THAN 1200PX SCREEN */
+@media screen and (min-width: 1200px) {
+    /* CUSTOM PROPERTY */
+
+    :root {
+        padding: 100px;
     }
 }
