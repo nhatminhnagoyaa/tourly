@@ -92,7 +92,7 @@ body {
   border-color: hsl(214, 57%, 51%);
 }
 
-.btn-primary :is(:hover, :focus) {
+.btn-primary:is(:hover, :focus) {
   background: hsl(214, 72%, 33%);
   border-color: hsl(214, 72%, 33%);
 }
@@ -101,7 +101,7 @@ body {
   border-color: hsl(0, 0%, 100%);
 }
 
-.btn-secondary :is(:hover, :focus) {
+.btn-secondary:is(:hover, :focus) {
   background: hsla(0, 0%, 100%, 0.1);
 }
 
@@ -129,6 +129,7 @@ body {
   font-weight: 700;
 }
 
+/* SECTION */
 .section-subtitle {
   color: hsl(214, 57%, 51%);
   font-size: 14px;
@@ -157,19 +158,6 @@ body {
   width: 100%;
   padding-top: 61px;
   z-index: 4;
-}
-.header .overlay {
-  position: fixed;
-  inset: 0;
-  background: hsl(0, 0%, 0%);
-  opacity: 0;
-  pointer-events: none;
-  z-index: 2;
-  transition: 0.25s ease-in-out;
-}
-.header .overlay .active {
-  opacity: 0.7;
-  pointer-events: all;
 }
 .header-top {
   position: absolute;
@@ -205,13 +193,9 @@ body {
 .header-top .helpline-box .icon-box ion-icon {
   --ionicon-stroke-width: 40px;
 }
-.header .active .header-top {
-  position: fixed;
-  background: hsl(206, 34%, 20%);
-}
 .header-btn-group {
-  justify-self: flex-end;
   display: flex;
+  justify-self: flex-end;
   align-items: center;
   gap: 10px;
   color: hsl(0, 0%, 100%);
@@ -221,8 +205,9 @@ body {
   font-size: 30px;
   color: inherit;
 }
-.header-btn-group .search-btn {
-  font-size: 20px;
+.header-btn-group .close-btn,
+.header-btn-group .search-input {
+  display: none;
 }
 .header-bottom {
   border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
@@ -233,29 +218,29 @@ body {
   align-items: center;
   padding-block: 15px;
 }
-.header-bottom .container .social-list {
+.header-bottom .social-list {
   display: flex;
   align-items: center;
   gap: 15px;
 }
-.header-bottom .container .social-link {
+.header-bottom .social-list .social-link {
   color: hsl(0, 0%, 100%);
-  padding: 6px;
-  border: 1px solid hsla(0, 0%, 100%, 0.3);
+  padding: 8px;
+  border: 1px solid hsla(255, 100%, 100%, 0.3);
   border-radius: 50%;
   font-size: 15px;
   transition: 0.25s ease-in-out;
 }
-.header-bottom .container .social-link :is(:hover, :focus) {
+.header-bottom .social-list .social-link:is(:hover, :focus) {
   background: hsla(0, 0%, 100%, 0.2);
 }
-.header-bottom .container .navbar {
+
+.navbar {
   position: fixed;
   top: 0;
   right: -300px;
-  width: 100px;
+  width: 100%;
   max-width: 300px;
-  height: 100%;
   background: hsl(0, 0%, 100%);
   height: 100%;
   visibility: hidden;
@@ -263,43 +248,65 @@ body {
   transition: 0.15s ease-in;
   z-index: 3;
 }
-.header-bottom .container .navbar .active {
-  right: 0;
-  visibility: hidden;
-  pointer-events: all;
-  transition: 0.25s ease-in;
-}
-.header-bottom .container .navbar-top {
+.navbar-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 40px 50px;
+  padding: 40px 15px;
 }
-.header-bottom .container .navbar-top .logo img {
+.navbar-top .logo img {
   width: 150px;
 }
-.header-bottom .container .navbar .nav-close-btn {
-  font-size: 30px;
-  color: hsl(214, 57%, 51%);
-}
-.header-bottom .container .navbar .nav-close-btn ion-icon {
-  --ionicon-stroke-width: 80px;
-}
-.header-bottom .container .navbar .navbar-list {
+.navbar-list {
   border-top: 1px solid hsla(0, 0%, 0%, 0.1);
 }
-.header-bottom .container .navbar .navbar-list li {
+.navbar-list li {
   border-bottom: 1px solid hsla(0, 0%, 0%, 0.1);
 }
-.header-bottom .container .navbar .navbar-list .navbar-link {
+.navbar-link {
   padding: 15px 20px;
   color: hsl(0, 0%, 20%);
   font-weight: 500;
   font-size: 15px;
-  transition: capitalize;
+  text-transform: capitalize;
 }
-.header-bottom .container .navbar .navbar-list .navbar-link :is(:hover, :focus) {
+.navbar-link :is(:hover, :focus) {
   color: hsl(214, 57%, 51%);
+}
+
+.nav-close-btn {
+  font-size: 30px;
+  color: hsl(214, 57%, 51%);
+}
+.nav-close-btn ion-icon {
+  --ionicon-stroke-width: 80px;
+}
+
+.header.active .header-top {
+  position: fixed;
+  background: hsl(206, 34%, 20%);
+}
+
+.navbar.active {
+  right: 0;
+  visibility: visible;
+  pointer-events: all;
+  transition: 0.25s ease-in;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: hsl(0, 0%, 0%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+  transition: 0.25s ease-in-out;
+}
+
+.overlay.active {
+  opacity: 0.7;
+  pointer-events: all;
 }
 
 /* HERO */
@@ -684,7 +691,7 @@ body {
   font-size: 12px;
   transition: 0.25s ease-in-out;
 }
-.footer-bottom-link :is(:hover, :focus) {
+.footer-bottom-link:is(:hover, :focus) {
   color: hsl(0, 0%, 100%);
 }
 
@@ -707,13 +714,14 @@ body {
   visibility: hidden;
   transition: 0.25s ease-in-out;
 }
-.go-top .active {
+.go-top :is(:hover, :focus) {
+  opacity: 1;
+}
+
+.go-top.active {
   opacity: 0.8;
   transform: translateY(0);
   visibility: visible;
-}
-.go-top :is(:hover, :focus) {
-  opacity: 1;
 }
 
 /* RESPONSVIE FOR LARGE THAN 580PX SCREEN */
@@ -743,17 +751,17 @@ body {
   .header-top .logo > img {
     max-width: unset;
   }
-  .header .btn {
-    font-size: 15px;
-    padding: 6px 20px;
-  }
-  .helpline-box .icon-box {
+  .header-top .helpline-box .icon-box {
     padding: 14px;
   }
-  .search-btn {
+  .header .btn {
+    font-size: 14px;
+    padding: 6px 20px;
+  }
+  .header-btn-group .search-btn {
     font-size: 30px;
   }
-  .nav-open-btn {
+  .header-btn-group .nav-open-btn {
     font-size: 40px;
   }
   /* HERO */
@@ -809,10 +817,6 @@ body {
 }
 /* RESPONSVIE FOR LARGE THAN 768PX SCREEN */
 @media screen and (min-width: 768px) {
-  /* CUSTOM PROPERTY  */
-  :root {
-    font-size: 15px;
-  }
   /* REUSED STYLE */
   .container {
     max-width: 800px;
@@ -897,6 +901,9 @@ body {
     margin-inline: 0;
   }
   /* FOOTER */
+  .footer-form .form-text {
+    font-size: 15px;
+  }
   .footer-form .input-field {
     margin-bottom: 0;
   }
@@ -917,19 +924,8 @@ body {
     max-width: 1050px;
   }
   /* HEADER */
-  .header .active .header-top {
-    /* Uset: đặt lại thuộc tính về giá trị đc kế thừa
-    nếu thuộc tính đó đc kết thừa từ cấp độ gốc và giá trị ban đầu nếu không*/
-    position: unset;
-    background: unset;
-  }
-  .header .active .header-bottom {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    box-shadow: 0 2px 5px hsla(0, 0%, 0%, 0.08);
-    transition: 0.25s ease-in-out;
+  .header-btn-group .nav-open-btn {
+    display: none;
   }
   .header-bottom {
     border-bottom: none;
@@ -937,41 +933,55 @@ body {
   .header-bottom .container {
     padding-block: 0;
   }
-  .header-bottom .container .nav-open-btn,
   .header-bottom .container .navbar-top {
     display: none;
   }
-  .header-bottom .container .navbar {
+  .overlay {
+    display: none;
+  }
+  .header.active .header-top {
+    /* Uset: đặt lại thuộc tính về giá trị đc kế thừa
+    nếu thuộc tính đó đc kết thừa từ cấp độ gốc và giá trị ban đầu nếu không*/
+    position: unset;
+    background: unset;
+  }
+  .header.active .header-bottom {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: hsl(0, 0%, 100%);
+    box-shadow: 0 2px 5px hsla(0, 0%, 0%, 0.08);
+    transition: 0.25s ease-in-out;
+  }
+  .header.active .social-link {
+    color: hsl(0, 0%, 25%);
+    border-color: hsla(0, 0%, 0%, 0.15);
+  }
+  .header.active .navbar-link {
+    color: hsl(0, 0%, 25%);
+  }
+  .header.active .navbar-link:is(:hover, :focus) {
+    color: hsl(214, 57%, 51%);
+  }
+  .navbar {
     all: unset;
   }
-  .header-bottom .container .navbar .navbar-list {
+  .navbar-list {
     border-top: none;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .header-bottom .container .navbar .navbar-list > li {
+  .navbar-list > li {
     border-bottom: none;
   }
-  .header-bottom .container .navbar .navbar-list > li .navbar-link {
+  .navbar-link {
     color: hsl(0, 0%, 100%);
     font-size: 16px;
     font-weight: unset;
     text-transform: uppercase;
     padding: 20px 15px;
-  }
-  .header-bottom .container .navbar .navbar-list .active .navbar-link {
-    color: hsl(0, 0%, 25%);
-  }
-  .header-bottom .container .navbar .navbar-list .active .navbar-link :is(:hover, :focus) {
-    color: hsl(214, 57%, 51%);
-  }
-  .header-bottom .container .active .social-link {
-    color: hsl(0, 0%, 25%);
-    border-color: hsla(0, 0%, 0%, 0.15);
-  }
-  .header .overlay {
-    display: none;
   }
   /* HERO */
   .hero .container {
@@ -1020,7 +1030,10 @@ body {
 @media screen and (min-width: 1200px) {
   /* CUSTOM PROPERTY */
   :root {
-    padding: 100px;
+    section: 100px;
+  }
+  .container {
+    max-width: 1180px;
   }
 }
 

@@ -42,9 +42,23 @@
         </a>
 
         <div class="header-btn-group">
-          <button class="search-btn" aria-label="Search">
-            <ion-icon name="search"></ion-icon>
-          </button>
+          <div class="search" id="search-content">
+
+            <form action="#" class="search-form">
+
+              <button class="search-btn" aria-label="Search-label">
+                <ion-icon name="search"></ion-icon>
+              </button>
+
+              <input type="search-outline" placeholder="What are you looking for?" class="search-input">
+
+            </form>
+
+            <button class="close-btn" aria-label="Close-label">
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+          </div>
 
           <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
             <ion-icon name="menu-outline"></ion-icon>
@@ -577,8 +591,7 @@
 
           <p class="footer-text">
             Urna ratione ante harum provident, eleifend, vulputate molestiae proin fringilla, praesentium magna conubia
-            at
-            perferendis, pretium, aenean aut ultrices.
+            at perferendis, pretium, aenean aut ultrices.
           </p>
 
         </div>
@@ -666,7 +679,7 @@
   </a>
 
   <!-- custom js link -->
-  <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/main.js"></script>
 
   <!-- ionicon link -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

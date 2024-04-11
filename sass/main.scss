@@ -79,7 +79,7 @@ body {
     border-color: $bright-navy-blue;
 }
 
-.btn-primary :is(:hover, :focus) {
+.btn-primary:is(:hover, :focus) {
     background: $yale-blue;
     border-color: $yale-blue;
 }
@@ -88,7 +88,7 @@ body {
     border-color: $white;
 }
 
-.btn-secondary :is(:hover, :focus) {
+.btn-secondary:is(:hover, :focus) {
     background: hsla(0, 0%, 100%, 0.1);
 }
 
@@ -116,6 +116,7 @@ body {
     font-weight: $fw-700;
 }
 
+/* SECTION */
 .section {
 
     &-subtitle {
@@ -149,21 +150,6 @@ body {
     width: 100%;
     padding-top: 61px;
     z-index: 4;
-
-    .overlay {
-        position: fixed;
-        inset: 0;
-        background: $black;
-        opacity: 0;
-        pointer-events: none;
-        z-index: 2;
-        transition: $transition;
-
-        .active {
-            opacity: .7;
-            pointer-events: all;
-        }
-    }
 
     &-top {
         position: absolute;
@@ -208,16 +194,10 @@ body {
         }
     }
 
-    .active {
-        .header-top {
-            position: fixed;
-            background: $gunmetal;
-        }
-    }
 
     &-btn-group {
-        justify-self: flex-end;
         display: flex;
+        justify-self: flex-end;
         align-items: center;
         gap: 10px;
         color: $white;
@@ -228,8 +208,9 @@ body {
             color: inherit;
         }
 
-        .search-btn {
-            font-size: 20px;
+        .close-btn,
+        .search-input {
+            display: none;
         }
 
     }
@@ -243,93 +224,113 @@ body {
             align-items: center;
             padding-block: 15px;
 
-            .social-list {
-                display: flex;
-                align-items: center;
-                gap: 15px;
-            }
+        }
+
+        .social-list {
+            display: flex;
+            align-items: center;
+            gap: 15px;
 
             .social-link {
                 color: $white;
-                padding: 6px;
-                border: 1px solid hsla(0, 0%, 100%, 0.3);
+                padding: 8px;
+                border: 1px solid hsla(255, 255, 255, 0.3);
                 border-radius: 50%;
                 font-size: 15px;
                 transition: $transition;
 
-                & :is(:hover, :focus) {
+                &:is(:hover, :focus) {
                     background: hsla(0, 0%, 100%, 0.2);
-                }
-            }
-
-            .navbar {
-                position: fixed;
-                top: 0;
-                right: -300px;
-                width: 100px;
-                max-width: 300px;
-                height: 100%;
-                background: $white;
-                height: 100%;
-                visibility: hidden;
-                pointer-events: none;
-                transition: .15s ease-in;
-                z-index: 3;
-
-                .active {
-                    right: 0;
-                    visibility: hidden;
-                    pointer-events: all;
-                    transition: .25s ease-in;
-                }
-
-                &-top {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    padding: 40px 50px;
-
-                    .logo {
-                        img {
-                            width: 150px;
-                        }
-                    }
-
-                }
-
-                .nav-close-btn {
-                    font-size: 30px;
-                    color: $bright-navy-blue;
-
-                    ion-icon {
-                        --ionicon-stroke-width: 80px;
-                    }
-                }
-
-                .navbar-list {
-                    border-top: 1px solid hsla(0, 0%, 0%, 0.1);
-
-                    li {
-                        border-bottom: 1px solid hsla(0, 0%, 0%, 0.1);
-                    }
-
-                    .navbar-link {
-                        padding: 15px 20px;
-                        color: $jet;
-                        font-weight: $fw-500;
-                        font-size: $fs-4;
-                        transition: capitalize;
-
-                        & :is(:hover, :focus) {
-                            color: $bright-navy-blue;
-                        }
-                    }
                 }
             }
         }
     }
 }
 
+.navbar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 100%;
+    max-width: 300px;
+    background: $white;
+    height: 100%;
+    visibility: hidden;
+    pointer-events: none;
+    transition: .15s ease-in;
+    z-index: 3;
+
+    &-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 40px 15px;
+
+        .logo {
+            img {
+                width: 150px;
+            }
+        }
+    }
+
+    &-list {
+        border-top: 1px solid hsla(0, 0%, 0%, 0.1);
+
+        li {
+            border-bottom: 1px solid hsla(0, 0%, 0%, 0.1);
+        }
+    }
+
+    &-link {
+        padding: 15px 20px;
+        color: $jet;
+        font-weight: $fw-500;
+        font-size: $fs-4;
+        text-transform: capitalize;
+
+        & :is(:hover, :focus) {
+            color: $bright-navy-blue;
+        }
+    }
+}
+
+.nav-close-btn {
+    font-size: 30px;
+    color: $bright-navy-blue;
+
+    ion-icon {
+        --ionicon-stroke-width: 80px;
+    }
+}
+
+.header.active {
+    .header-top {
+        position: fixed;
+        background: $gunmetal;
+    }
+}
+
+.navbar.active {
+    right: 0;
+    visibility: visible;
+    pointer-events: all;
+    transition: .25s ease-in;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: $black;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2;
+    transition: $transition;
+}
+
+.overlay.active {
+    opacity: .7;
+    pointer-events: all;
+}
 
 /* HERO */
 .hero {
@@ -363,8 +364,6 @@ body {
         gap: 10px;
     }
 }
-
-
 
 /* TOUR SEARCH */
 .tour {
@@ -795,7 +794,7 @@ body {
             font-size: $fs-7;
             transition: $transition;
 
-            & :is(:hover, :focus) {
+            &:is(:hover, :focus) {
                 color: $white;
             }
         }
@@ -822,15 +821,15 @@ body {
     visibility: hidden;
     transition: $transition;
 
-    .active {
-        opacity: .8;
-        transform: translateY(0);
-        visibility: visible;
-    }
-
     & :is(:hover, :focus) {
         opacity: 1;
     }
+}
+
+.go-top.active {
+    opacity: .8;
+    transform: translateY(0);
+    visibility: visible;
 }
 
 /* RESPONSVIE FOR LARGE THAN 580PX SCREEN */
@@ -867,27 +866,31 @@ body {
             .logo>img {
                 max-width: unset;
             }
+
+            .helpline-box {
+                .icon-box {
+                    padding: 14px;
+                }
+            }
         }
 
         .btn {
-            font-size: 15px;
+            font-size: 14px;
             padding: 6px 20px;
         }
-    }
 
-    .helpline-box {
-        .icon-box {
-            padding: 14px;
+        &-btn-group {
+            .search-btn {
+                font-size: 30px;
+            }
+
+            .nav-open-btn {
+                font-size: 40px;
+            }
         }
     }
 
-    .search-btn {
-        font-size: 30px;
-    }
 
-    .nav-open-btn {
-        font-size: 40px;
-    }
 
     /* HERO */
     .hero {
@@ -964,11 +967,6 @@ body {
 /* RESPONSVIE FOR LARGE THAN 768PX SCREEN */
 @media screen and (min-width: 768px) {
 
-    /* CUSTOM PROPERTY  */
-    :root {
-        font-size: 15px;
-    }
-
     /* REUSED STYLE */
     .container {
         max-width: 800px;
@@ -998,6 +996,7 @@ body {
         }
 
         &-bottom {
+
             .social-list {
                 gap: 10px;
             }
@@ -1091,7 +1090,11 @@ body {
     /* FOOTER */
     .footer {
 
+
         &-form {
+            .form-text {
+                font-size: 15px;
+            }
 
             .input-field {
                 margin-bottom: 0;
@@ -1123,22 +1126,9 @@ body {
 
     /* HEADER */
     .header {
-
-        .active {
-            .header-top {
-                /* Uset: đặt lại thuộc tính về giá trị đc kế thừa
-        nếu thuộc tính đó đc kết thừa từ cấp độ gốc và giá trị ban đầu nếu không*/
-                position: unset;
-                background: unset;
-            }
-
-            .header-bottom {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                box-shadow: 0 2px 5px hsla(0, 0%, 0%, 0.08);
-                transition: $transition;
+        &-btn-group {
+            .nav-open-btn {
+                display: none;
             }
         }
 
@@ -1148,56 +1138,75 @@ body {
             .container {
                 padding-block: 0;
 
-                .nav-open-btn,
                 .navbar-top {
                     display: none;
                 }
 
-                .navbar {
-                    all: unset;
-
-                    .navbar-list {
-                        border-top: none;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-
-                        >li {
-                            border-bottom: none;
 
 
-                            .navbar-link {
-                                color: $white;
-                                font-size: 16px;
-                                font-weight: unset;
-                                text-transform: uppercase;
-                                padding: 20px 15px;
-                            }
-                        }
-
-                        .active {
-                            .navbar-link {
-                                color: $onyx;
-
-                                & :is(:hover, :focus) {
-                                    color: $bright-navy-blue;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                .active {
-                    .social-link {
-                        color: $onyx;
-                        border-color: hsla(0, 0%, 0%, 0.15);
-                    }
-                }
             }
         }
 
-        .overlay {
-            display: none;
+
+    }
+
+    .overlay {
+        display: none;
+    }
+
+    .header.active {
+        .header-top {
+            /* Uset: đặt lại thuộc tính về giá trị đc kế thừa
+        nếu thuộc tính đó đc kết thừa từ cấp độ gốc và giá trị ban đầu nếu không*/
+            position: unset;
+            background: unset;
+        }
+
+        .header-bottom {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: $white;
+            box-shadow: 0 2px 5px hsla(0, 0%, 0%, 0.08);
+            transition: $transition;
+        }
+
+        .social-link {
+            color: $onyx;
+            border-color: hsla(0, 0%, 0%, 0.15);
+        }
+
+        .navbar-link {
+            color: $onyx;
+
+            &:is(:hover, :focus) {
+                color: $bright-navy-blue;
+            }
+        }
+
+    }
+
+    .navbar {
+        all: unset;
+
+        &-list {
+            border-top: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            >li {
+                border-bottom: none;
+            }
+        }
+
+        &-link {
+            color: $white;
+            font-size: 16px;
+            font-weight: unset;
+            text-transform: uppercase;
+            padding: 20px 15px;
         }
     }
 
@@ -1278,6 +1287,12 @@ body {
     /* CUSTOM PROPERTY */
 
     :root {
-        padding: 100px;
+        section: 100px;
     }
+
+    .container {
+        max-width: 1180px;
+    }
+
+
 }
