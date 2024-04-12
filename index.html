@@ -41,24 +41,25 @@
           <img src="./assets/images/logo.svg" alt="Tourly logo" />
         </a>
 
+        <!-- SEARCH FORM -->
+        <div class="search" aria-label="Search Content" data-search-content>
+
+          <form action="#" class="search-form">
+            <ion-icon name="search"></ion-icon>
+            <input type="search" placeholder="What are you looking for ?" class="search-input">
+
+          </form>
+
+          <button class="search-close" aria-label="Close Search" data-search-close-btn>
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+
+        </div>
+
         <div class="header-btn-group">
-          <div class="search" id="search-content">
-
-            <form action="#" class="search-form">
-
-              <button class="search-btn" aria-label="Search-label">
-                <ion-icon name="search"></ion-icon>
-              </button>
-
-              <input type="search-outline" placeholder="What are you looking for?" class="search-input">
-
-            </form>
-
-            <button class="close-btn" aria-label="Close-label">
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-          </div>
+          <button class="search-btn" aria-label="Open Search" data-search-open-btn>
+            <ion-icon name="search"></ion-icon>
+          </button>
 
           <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
             <ion-icon name="menu-outline"></ion-icon>
@@ -678,8 +679,13 @@
     <ion-icon name="chevron-up-outline"></ion-icon>
   </a>
 
+  <!-- Link JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
   <!-- custom js link -->
   <script src="./assets/js/main.js"></script>
+  <script></script>
 
   <!-- ionicon link -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
