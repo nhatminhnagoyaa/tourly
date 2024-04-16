@@ -1,62 +1,5 @@
-@charset "UTF-8";
-
 @import "config";
-
-/*-----------------------------------*\
- * #RESET
-\*-----------------------------------*/
-
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-li {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-}
-
-a,
-img,
-span,
-input,
-label,
-button,
-ion-icon {
-    display: block;
-}
-
-input,
-button {
-    background: none;
-    border: none;
-    font: inherit;
-}
-
-button {
-    cursor: pointer;
-}
-
-input {
-    width: 100%;
-}
-
-ion-icon {
-    pointer-events: none;
-}
-
-html {
-    font-family: $ff-poppins;
-    scroll-behavior: smooth;
-}
-
-body {
-    background: $white;
-}
+@import "reset";
 
 /* RESUSED STYLE */
 
@@ -115,6 +58,7 @@ body {
     font-size: $fs-3;
     font-weight: $fw-700;
 }
+
 
 /* SECTION */
 .section {
@@ -203,6 +147,7 @@ body {
         color: $white;
 
         .search-btn,
+        .light-moon-btn,
         .nav-open-btn {
             font-size: 30px;
             color: inherit;
@@ -246,36 +191,33 @@ body {
     top: -100%;
     left: 0;
     width: 100%;
-    height: auto;
-    /* height: 100%; */
+    height: 100%;
     z-index: 100;
-    background-color: hsla(230, 12%, 96%, .6);
+    background-color: $bright-navy-blue;
     backdrop-filter: blur(16px);
     padding: 8rem 1.5rem;
+    transition: top .4s;
 
     &-form {
         display: flex;
         align-items: center;
-        column-gap: .5rem;
-        background-color: beige;
+        background-color: $white;
         border: 1px solid $bright-navy-blue;
         padding-inline: .5rem;
-        border-radius: $radius-15;
+        border-radius: 50px;
+        gap: 20px;
+        font-size: $fs-3;
+        font-weight: $fw-500;
 
-        ion-icon {
-            color: #d64f1e;
-            font-size: $fs-3;
-            font-weight: $fw-700;
+        &>ion-icon {
+            color: $bright-navy-blue;
             align-items: center;
-
         }
-
     }
 
     &-input {
-        padding-block: .6rem;
-        background-color: hsl(230, 100%, 97%);
-        color: hsl(230, 50%, 90%);
+        width: 100%;
+        padding: 10px 15px;
     }
 
     &-close {
@@ -290,8 +232,6 @@ body {
 
 /* show-search */
 .search.active {
-    opacity: 1;
-    visibility: visible;
     top: 0;
 }
 
@@ -937,6 +877,22 @@ body {
             }
         }
     }
+
+    .search {
+        &-form {
+            width: 500px;
+            margin-inline: auto;
+        }
+
+        &-close {
+            width: max-content;
+            top: 4rem;
+            left: 0;
+            right: 0;
+            margin-inline: auto;
+        }
+    }
+
 
 
 

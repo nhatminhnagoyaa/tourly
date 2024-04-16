@@ -1,9 +1,5 @@
-/*-----------------------------------*\
- * #CUSTOM PROPERTY
-\*-----------------------------------*/
-/**
-   * colors
-   */
+@charset "UTF-8";
+
 $united-nations-blue: hsl(214, 56%, 58%);
 $bright-navy-blue: hsl(214, 57%, 51%);
 $spanish-gray: hsl(0, 0%, 60%);
@@ -18,10 +14,6 @@ $white: hsl(0, 0%, 100%);
 $black: hsl(0, 0%, 0%);
 $onyx: hsl(0, 0%, 25%);
 $jet: hsl(0, 0%, 20%);
-
-/**
-   * typography
-   */
 
 $ff-poppins: "Poppins", sans-serif;
 $ff-montserrat: "Montserrat", sans-serif;
@@ -40,21 +32,10 @@ $fw-600: 600;
 $fw-700: 700;
 $fw-800: 800;
 
-/**
-   * transition
-   */
-
 $transition: 0.25s ease-in-out;
-
-/**
-   * spacing
-   */
 
 $section-padding: 60px;
 
-/**
-   * border-radius
-   */
-
+$radius-10: 10px;
 $radius-15: 15px;
 $radius-25: 25px;

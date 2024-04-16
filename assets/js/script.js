@@ -12,11 +12,6 @@ const navCloseBtn = document.querySelector("[data-nav-close-btn]");
 
 const navLinks = document.querySelectorAll("[data-nav-link]");
 
-// search toggle
-const searchContent = document.getElementById("[data-search-content]");
-const searchOpenBtn = document.getElementById("[data-search-open-btn]");
-const searchCloseBtn = document.getElementById("[data-search-close-btn]");
-
 const navElemArr = [navOpenBtn, navCloseBtn, overlay];
 
 const navToggleEvent = function (elem) {
@@ -31,23 +26,22 @@ const navToggleEvent = function (elem) {
 navToggleEvent(navElemArr);
 navToggleEvent(navLinks);
 
+// search toggle
+const searchContent = document.querySelector("[data-search-content]");
+const searchOpenBtn = document.querySelector("[data-search-open-btn]");
+const searchCloseBtn = document.querySelector("[data-search-close-btn]");
 
 // search Show
 if (searchOpenBtn) {
   searchOpenBtn.addEventListener("click", () => {
-    searchContent.classList.add("show-search");
-
-    console.log("search-open")
+    searchContent.classList.add("active");
   })
 };
 
 // // search Close
-if (searchContent) {
+if (searchCloseBtn) {
   searchCloseBtn.addEventListener("click", () => {
-    searchContent.classList.add("show-search");
-
-    console.log("search-close")
-
+    searchContent.classList.remove("active");
   })
 }
 /**
@@ -68,3 +62,13 @@ window.addEventListener("scroll", () => {
   }
 
 });
+
+// SCROLL REVEAL ANIMATION
+const sr = ScrollReveal({
+  origin: 'top',
+  distance: '60px',
+  duration: 2500,
+  delay: 400
+})
+
+sr.reveal(`.hero-title, .hero-text,.tour-search, .btn-group,.popular,.package,.gallery,.cta,.footer`);
